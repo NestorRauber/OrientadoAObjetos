@@ -1,0 +1,67 @@
+<?php
+
+require_once("modelo/Pedidos.php");
+require_once("modelo/Prato.php");
+
+function retornaNumero(){
+    
+}
+
+$pratos = array(
+    new Prato(1, "Camarão à Milanesa", 110.00),
+    new Prato(2, "Pizza Margherita", 80.00),
+    new Prato(3, "Macarrão à Carbonara", 60.00),
+    new Prato(4, "Bife à Parmegiana", 75.00),
+    new Prato(5, "Risoto ao Funghi", 70.00)
+);
+
+//Menu
+
+$opcao = 0;
+
+do {
+
+    print"\n\n---------Menu---------\n";
+    print"(1) - Cadastrar\n";
+    print"(2) - Cancelar\n";
+    print"(3) - Listar\n";
+    print"(4) - Total de Vendas\n";
+    print"(0) - Sair\n";
+    print"----------------------\n\n";
+
+    $opcao = readline("Escolha uma opção: \n\n");
+
+    switch ($opcao) {
+        case 1:
+            $pedido = new Pedido();
+            $pedido->setNomeCliente(readline("Nome do cliente: \n"));
+            $pedido->setNomeGarcom(readline("Nome do garçom: \n\n"));
+
+            foreach($pratos as $p){
+                print "\nNúmero: " . $p->getNumero() . " - Nome: " . $p->getNome() . " - Valor: " . $p->getValor() . "\n";
+            }
+
+            
+
+            
+            break;
+        case 2:
+            
+            break;
+        case 3:
+            
+            break;
+        case 4:
+            
+            break;
+        case 0:
+
+            print"Programa Encerrado.\n";
+            
+            break;
+        
+        default:
+            print"Opcão Inválida!\n";
+            break;
+    }
+} while ($opcao != 0);
